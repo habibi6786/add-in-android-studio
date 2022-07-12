@@ -1,0 +1,84 @@
+package com.example.add;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
+
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+//Main activiy
+public class MainActivity extends AppCompatActivity {
+protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        AppCompatButton button = findViewById(R.id.button1);
+        EditText text;
+        EditText text1;
+        EditText edt;
+        text =findViewById(R.id.text1);
+        text1=findViewById(R.id.text2);
+        button = findViewById(R.id.button1);
+         edt =findViewById(R.id.ed3);
+
+
+        button.setOnClickListener(view -> {
+             int x= Integer.parseInt(text.getText().toString());
+             int y= Integer.parseInt(text1.getText().toString());
+             int z= x + y;
+            edt.setText("Answer is " + String.valueOf(z));
+        });}}
+         //xml file
+         <?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+       android:layout_marginTop="130dp"
+        android:inputType="number"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text1"
+        android:layout_marginTop="200dp"
+        />
+
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="90dp"
+        android:layout_height="80dp"
+        android:text="Add"
+        android:textStyle="italic"
+        android:id="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@id/text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       />
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/ed3"
+        app:layout_constraintTop_toBottomOf="@id/button1"/>
+
+
+
